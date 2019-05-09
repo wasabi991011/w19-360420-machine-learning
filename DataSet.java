@@ -251,6 +251,15 @@ public class DataSet {
   // TASK 4: make a method here called distanceEuclid 
 
   ////////////////////////////////////////////////////////////////////////////
-
+  public static double distanceEuclid(DataPoint a, DataPoint b){
+	double sumOfSquares = 0;
+	double[] ax = a.getX();
+	double[] bx = b.getX();
+	for (int i = 0; i < ax.length; i++){
+	  sumOfSquares += Math.pow(ax[i] - bx[i], 2);
+	}
+	return Math.sqrt(sumOfSquares);
+  }
+  
 
 }
