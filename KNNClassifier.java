@@ -142,5 +142,21 @@ public int getIndexOfLargest( int[] array )
   return predictedLabel;
   }
   /////////////////////////////////////////////////////////////////////////
+  public double[] test(List<DataPoint> testSet, List<DataPoint> trainSet){
+	int nTest = testSet.size();
+	int nTrain = trainSet.size();
+	double[] results = new double[nTest];
+	for (int i=0; i<nTest; i++){
+		DataPoint dp = testSet.get(i);
+		String label = dp.getLabel();
+		String prediction = this.predict(trainSet, dp);
+		if (prediction.equals(label)){
+			results[i] = 1;
+		} else {
+			results[i] = 0;
+		}
+	}
+	return results;
+  }
 
 }
