@@ -44,7 +44,16 @@ public class kNNMain{
 
     // TASK 6: loop over the datapoints in the held out test set, and make predictions for Each
     // point based on nearest neighbors in training set. Calculate accuracy of model.
-
+	double amountRight = 0;
+	for (int i=0; i<testData.size(); i++){
+		DataPoint dpi = testData.get(i);
+		String predictioni = classifier.predict(trainData, dpi);
+		if (predictioni.equals(dpi.getLabel())){
+			amountRight++;
+		}
+	}
+	double accuracy = amountRight/testData.size();
+	System.out.println("Accuracy: "+accuracy);
 
   }
 
