@@ -145,18 +145,33 @@ public int getIndexOfLargest( int[] array )
   public double[] test(List<DataPoint> testSet, List<DataPoint> trainSet){
 	int nTest = testSet.size();
 	int nTrain = trainSet.size();
-	double[] results = new double[nTest];
+	double trueNeg = 0;
+	double truePos = 0;
+	double falseNeg = 0;
+	double falsePos = 0;
+	double[] results = new double[3]; //Accuracy, Precision, Recall
 	for (int i=0; i<nTest; i++){
 		DataPoint dp = testSet.get(i);
 		String label = dp.getLabel();
 		String prediction = this.predict(trainSet, dp);
 		if (prediction.equals(label)){
-			results[i] = 1;
+			if (prediction.equals("malignant")){ //True positive
+				truePos++;
+			} else if (prediction.equals("benign")){ //True negative
+				trueNeg++;
+			}
 		} else {
-			results[i] = 0;
+			if (prediction.equals("malignant")){ //False positive 
+				falsePos++;
+			} else if (prediction.equals("benign")){ //False negative
+				falseNeg++;
+			}
 		}
 	}
+	results[0] = (truePos+trueNeg)/nTest; //Accuracy
+	results[1] = truePos/(truePos+falsePos); //Precision
+	results[2] = truePos/(truePos+falseNeg); //Recall
 	return results;
   }
-
+  
 }
