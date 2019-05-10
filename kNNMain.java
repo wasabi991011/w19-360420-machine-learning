@@ -16,7 +16,7 @@ public class kNNMain{
 	System.out.println(dp.getLabelAsDouble());
 
     //TASK 2:Use the DataSet class to split the fullDataSet into Training and Held Out Test Dataset
-	double testFrac = 0.25;
+	double testFrac = 0.3;
 	List<DataPoint> testData = DataSet.getTestSet(data, testFrac);
 	List<DataPoint> trainData = DataSet.getTrainingSet(data, 1-testFrac);
 	
@@ -25,7 +25,7 @@ public class kNNMain{
 	System.out.println("Train length: "+trainData.size());
 
     // TASK 3: Use the DataSet class methods to plot the 2D data (binary and multi-class)
-	//Don't do
+	//No
 
 
     // TASK 4: write a new method in DataSet.java which takes as arguments to DataPoint objects,
