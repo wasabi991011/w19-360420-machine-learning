@@ -1,6 +1,7 @@
 # KNN Classifier Report
 ## Course - Section
 ## Authors
+Zachary Vernec, 1735394
 
 ## Distributions of Model Accuracy
 
